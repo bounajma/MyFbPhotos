@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomePage" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomePage" customModule="MyFbPhotos" customModuleProvider="target">
             <connections>
+                <outlet property="facebookButton" destination="40z-k9-NMZ" id="KpV-BD-g1b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +20,37 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pcb-Jf-UAT">
+                    <rect key="frame" x="21" y="562.5" width="333" height="44.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40z-k9-NMZ">
+                            <rect key="frame" x="0.0" y="0.0" width="333" height="44.5"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.3411764706" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                            <state key="normal" title="CONNEXION AVEC FACEBOOK" image="facebook-logo">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="facebookLogin:" destination="-1" eventType="touchUpInside" id="J0p-TN-64H"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Upf-TM-wij"/>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pcb-Jf-UAT" secondAttribute="bottom" constant="60" id="PfO-R3-Ngm"/>
+                <constraint firstItem="Pcb-Jf-UAT" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="8:9" id="Uta-n2-ZCR"/>
+                <constraint firstItem="40z-k9-NMZ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:15" id="tx7-br-W5c"/>
+                <constraint firstItem="Pcb-Jf-UAT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zFf-UP-TOJ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="facebook-logo" width="11" height="24"/>
+    </resources>
 </document>

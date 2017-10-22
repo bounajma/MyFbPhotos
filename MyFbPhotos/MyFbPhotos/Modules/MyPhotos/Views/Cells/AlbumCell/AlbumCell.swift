@@ -10,9 +10,15 @@ import UIKit
 
 class AlbumCell: UICollectionViewCell {
 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var photosNumber: UILabel!
+    @IBOutlet weak var coverPhoto: UIImageView!
+    var albumPhotoId: String?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.contentView.layer.masksToBounds = true
+        self.contentView.layer.cornerRadius = 8
+       
     }
 
 }

@@ -7,3 +7,28 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+class FacebookPhoto {
+    var id: String?
+    var createdTime: String?
+    var link: String?
+    
+    init(photo: JSON) {
+        
+        if let id = photo["id"].string {
+            self.id = id
+        }
+        if let date = photo["created_time"].string {
+            self.createdTime = date
+        }
+        if let images = photo["images"].array {
+            if let largest = images[0]["source"].string {
+                self.link = largest
+            } else if let link = photo["picture"].string {
+                self.link = link
+            }
+        }
+    }
+    
+}

@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetails" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetails" customModule="MyFbPhotos" customModuleProvider="target">
             <connections>
+                <outlet property="photo" destination="gsZ-hn-vHd" id="KKY-QD-FeZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +20,35 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gsZ-hn-vHd">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFq-64-UxI">
+                    <rect key="frame" x="331" y="20" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="bKp-QP-ajJ"/>
+                        <constraint firstAttribute="height" constant="24" id="grU-VL-eWX"/>
+                    </constraints>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="Rbw-Ng-NFl"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gsZ-hn-vHd" secondAttribute="bottom" id="2do-GQ-rqA"/>
+                <constraint firstItem="gsZ-hn-vHd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AYu-H2-z3O"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oFq-64-UxI" secondAttribute="trailing" constant="20" id="cmp-C1-7Jw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gsZ-hn-vHd" secondAttribute="trailing" id="joD-Hx-5TT"/>
+                <constraint firstItem="oFq-64-UxI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="pO6-QA-2ys"/>
+                <constraint firstItem="gsZ-hn-vHd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wCg-hC-cH4"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="close" width="24" height="24"/>
+    </resources>
 </document>

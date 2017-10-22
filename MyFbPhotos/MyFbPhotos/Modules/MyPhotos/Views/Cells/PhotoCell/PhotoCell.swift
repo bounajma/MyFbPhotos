@@ -10,9 +10,11 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
 
+    @IBOutlet weak var photo: UIImageView!
+    var photoId: String?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
 }

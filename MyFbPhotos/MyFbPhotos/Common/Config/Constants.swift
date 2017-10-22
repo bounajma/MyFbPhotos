@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+struct ViewsConfig {
+    static let buttonsRadius: CGFloat = 5
+}

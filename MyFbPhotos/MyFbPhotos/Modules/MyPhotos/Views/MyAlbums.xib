@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyAlbums" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyAlbums" customModule="MyFbPhotos" customModuleProvider="target">
             <connections>
+                <outlet property="albumsCollection" destination="xHt-5B-2BI" id="4BF-Ab-aqb"/>
+                <outlet property="logOutButton" destination="fjw-rF-jy2" id="rlQ-iI-exQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +22,53 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-yu-9Lg">
+                    <rect key="frame" x="21" y="30" width="333.5" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjw-rF-jy2">
+                            <rect key="frame" x="0.0" y="0.0" width="115.5" height="30"/>
+                            <state key="normal" title="Log Out"/>
+                            <connections>
+                                <action selector="logOut:" destination="-1" eventType="touchUpInside" id="aiU-HG-Gvc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMo-aA-qfr">
+                            <rect key="frame" x="115.5" y="0.0" width="102.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZ6-Lq-Ok8">
+                            <rect key="frame" x="218" y="0.0" width="115.5" height="30"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="fjw-rF-jy2" firstAttribute="width" secondItem="FZ6-Lq-Ok8" secondAttribute="width" id="fb1-tL-vbo"/>
+                    </constraints>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xHt-5B-2BI">
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B9w-eE-ARK">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4Og-yu-9Lg" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="8:9" id="3o4-J9-pYt"/>
+                <constraint firstItem="4Og-yu-9Lg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="EDm-4N-Na5"/>
+                <constraint firstItem="xHt-5B-2BI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EUS-9v-PmF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xHt-5B-2BI" secondAttribute="trailing" id="Q4M-JB-pBb"/>
+                <constraint firstItem="xHt-5B-2BI" firstAttribute="top" secondItem="4Og-yu-9Lg" secondAttribute="bottom" id="fjB-rX-CFo"/>
+                <constraint firstItem="4Og-yu-9Lg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nH3-cC-Vr5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xHt-5B-2BI" secondAttribute="bottom" id="nY4-4B-C2e"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>

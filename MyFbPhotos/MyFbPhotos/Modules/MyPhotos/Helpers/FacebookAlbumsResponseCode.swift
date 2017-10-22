@@ -7,3 +7,7 @@
 //
 
 import Foundation
+enum FacebookResponseCode: Int {
+    case OK = 0
+    case Error
+}
